@@ -6,8 +6,8 @@ persistence of objects. Its extensible nature allows quick and
 easy implementation of backends (known as repositories).
 
 Currently supported repositories:
-    - CouchDB
-    - MySQL
+ - CouchDB
+ - MySQL
 
 ## Using Persist
 
@@ -39,16 +39,16 @@ Then, define your repository module:
                                    
 Then, use your persistable model:
 
-   var objects = require('objects'); // Your module
+    var objects = require('objects'); // Your module
 
-   var post = new objects.Post('test', 'Hello');
-   post.save(function(ok)
-   {
-       if(!ok) throw new Error('Could not save');
-   });
+    var post = new objects.Post('test', 'Hello');
+    post.save(function(ok)
+    {
+        if(!ok) throw new Error('Could not save');
+    });
 
-   post.load('test', function(obj)
-   {
-       if(!obj) throw new Error('Could not load');
-       // Do stuff to the post
-   }
+    post.load('test', function(obj)
+    {
+        if(!obj) throw new Error('Could not load');
+        // Do stuff to the post
+    }
