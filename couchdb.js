@@ -136,7 +136,6 @@ CouchDbRepository.prototype.set = function(obj, callback)
     {
       if(err)
       {
-        console.log(err);
         callback(false);
       }
       else if(statusCode == 201 || statusCode == 202)

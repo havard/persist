@@ -31,7 +31,14 @@ RepositoryModule.prototype.addObject = function(objectName, settings)
 
   var getter = function(id, callback)
   {
-    module.repository.get(id, callback);
+    module.repository.get(id, function(loaded)
+    {
+      for(var thing in type.prototype)
+      {
+        loaded[thing] = type.prototype[thing];
+      }
+      callback(loaded);
+    });
   };
 
   var setter = function(obj, callback)
