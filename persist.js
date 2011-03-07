@@ -33,9 +33,12 @@ RepositoryModule.prototype.addObject = function(objectName, settings)
   {
     module.repository.get(id, function(loaded)
     {
-      for(var thing in type.prototype)
+      if(loaded)
       {
-        loaded[thing] = type.prototype[thing];
+        for(var thing in type.prototype)
+        {
+          loaded[thing] = type.prototype[thing];
+        }
       }
       callback(loaded);
     });
